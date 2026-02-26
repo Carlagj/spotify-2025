@@ -25,4 +25,5 @@ public class SongDataRepository implements SongRepository {
         songs.add(song2);
 
         return songs;
+    }
 }
