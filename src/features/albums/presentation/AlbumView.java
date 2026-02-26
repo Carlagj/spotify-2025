@@ -1,6 +1,7 @@
 package features.albums.presentation;
 
 import features.albums.data.AlbumDataRepository;
+import features.albums.data.AlbumMemLocalDataSource;
 import features.albums.domain.Album;
 import features.albums.domain.GetAlbumsUseCase;
 import features.albums.domain.SaveAlbumUseCase;
@@ -10,8 +11,7 @@ import java.util.ArrayList;
 public class AlbumView {
     public static void printAlbums(){
         GetAlbumsUseCase getAlbumsUseCase = new GetAlbumsUseCase(
-                new AlbumDataRepository(AlbumMemLocalDataSource.newInstance())
-        );
+                new AlbumDataRepository(AlbumMemLocalDataSource.newInstance()));
         ArrayList<Album> albums = getAlbumsUseCase.execute();
         System.out.println(albums);
     }
