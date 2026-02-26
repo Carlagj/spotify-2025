@@ -1,5 +1,6 @@
 package features.songs.data;
 
+import features.albums.data.AlbumMemLocalDataSource;
 import features.songs.domain.Song;
 import features.songs.domain.SongRepository;
 
@@ -25,5 +26,10 @@ public class SongDataRepository implements SongRepository {
         songs.add(song2);
 
         return songs;
+    }
+
+    @Override
+    public void delete(String id) {
+        SongMemLocalDataSource.delete(id);
     }
 }
