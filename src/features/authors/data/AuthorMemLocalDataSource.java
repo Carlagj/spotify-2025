@@ -1,29 +1,39 @@
 package features.authors.data;
-
 import features.authors.domain.Author;
 
 import java.util.ArrayList;
 
 public class AuthorMemLocalDataSource {
-    public ArrayList<Author> authorsMemStorage = new ArrayList<>();
+        private static features.authors.data.AuthorMemLocalDataSource instance = null;
 
-    public AuthorMemLocalDataSource() {
-        initData();
-    }
+        private ArrayList<Author> storage = new ArrayList<>();
 
-    private void initData(){
-        Author author1 = new Author("1", "MemExtremoduro", "01-01-1970", "Española");
-        authorsMemStorage.add(author1);
+        private AuthorMemLocalDataSource() {
+            initData();
+        }
 
-        Author author2 = new Author("2", "MemOasis", "01-01-1980", "Inglesa");
-        authorsMemStorage.add(author2);
-    }
+        private void initData(){
+            Author author = new Author("1","MemExtremoduro", "01-01-1970", "Española");
+            storage.add(author);
+        }
 
-    public ArrayList<Author> findAll(){
-        return authorsMemStorage;
-    }
+        public ArrayList<Author> findAll(){
+            return storage;
+        }
 
-    public void save(Author author){
-        authorsMemStorage.add(author);
-    }
+        public void save(Author author){
+            storage.add(author);
+            System.out.println(author);
+        }
+
+        public static features.authors.data.AuthorMemLocalDataSource newInstance(){
+            if (instance == null){
+                instance = new features.authors.data.AuthorMemLocalDataSource();
+
+            }
+
+            return instance;
+        }
+
 }
+
