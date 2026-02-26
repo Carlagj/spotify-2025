@@ -1,5 +1,7 @@
 package features.albums.data;
 
+import features.albums.domain.Album;
+
 public class AlbumDataRepository {
     private AlbumMemLocalDataSource albumMemLocalDataSource;
 
@@ -17,4 +19,8 @@ public class AlbumDataRepository {
         albumMemLocalDataSource.save(album);
     }
 
+    @Override
+    public void delete(String id) {
+        AlbumMemLocalDataSource.delete(id);
+    }
 }

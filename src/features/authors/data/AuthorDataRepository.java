@@ -1,5 +1,6 @@
 package features.authors.data;
 
+import features.albums.data.AlbumMemLocalDataSource;
 import features.authors.domain.Author;
 
 import java.util.ArrayList;
@@ -18,5 +19,10 @@ public class AuthorDataRepository {
     @Override
     public ArrayList<Author> getAuthors() {
         return authorMemLocalDataSource.findAll();
+    }
+
+    @Override
+    public void delete(String id) {
+        AuthorMemLocalDataSource.delete(id);
     }
 }

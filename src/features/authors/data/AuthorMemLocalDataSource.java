@@ -35,5 +35,9 @@ public class AuthorMemLocalDataSource {
             return instance;
         }
 
+    public void delete(String id) {
+        storage.removeIf(author -> author.getId().equals(id));
+    }
+
 }
 

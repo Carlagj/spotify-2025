@@ -36,5 +36,8 @@ public class SongMemLocalDataSource {
             return instance;
         }
 
+    public void delete(String id) {
+        storage.removeIf(song -> song.getId().equals(id));
+    }
 }
 
